@@ -9,12 +9,7 @@ fn main() {
 
         println!("Req: {:#?}\nAddr: {:#?}", req, req_addr);
 
-        let body = format!(
-            r#"{{
-            "Response From": "HTTP/1.1",
-            "Your Addres is": "{req_addr}"
-            }}"#
-        );
+        let body = format!(r#"{{"Protocol": "HTTP/1.1","Your Addres is": "{req_addr}"}}"#);
 
         let response = format!(
             "HTTP/1.1 200 Ok\r\nContent-Length: {}\r\nContent-Type: Document/json\r\nConnection: close\r\n\r\n{}",
